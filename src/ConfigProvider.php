@@ -93,4 +93,17 @@ final class ConfigProvider
             ],
         ];
     }
+
+    public function getTemplates(): array
+    {
+        return [
+            'paths' => [
+                'app'              => [__DIR__ . '/../templates/app'],
+                'error'            => [__DIR__ . '/../templates/error'],
+                'layout'           => [__DIR__ . '/../templates/layout'],
+                'app-endpoint'     => [__DIR__ . '/../templates/api-endpoint'],
+                'app-oob-partial'  => [__DIR__ . '/../templates/oob-partial'],
+            ],
+        ];
+    }
 }
