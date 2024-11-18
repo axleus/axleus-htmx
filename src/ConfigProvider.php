@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Axleus\Htmx;
 
 use Laminas\Form\View\Helper\Form as LaminasFormHelper;
+use Mezzio\LaminasView\LaminasViewRenderer;
 
 final class ConfigProvider
 {
@@ -15,6 +16,7 @@ final class ConfigProvider
             'view_helpers'       => $this->getViewHelpers(),
             'view_helper_config' => $this->getViewHelperConfig(),
             'htmx_config'        => $this->getHtmxConfig(),
+            'templates'          => $this->getTemplates(),
         ];
     }
 
@@ -23,6 +25,7 @@ final class ConfigProvider
         return [
             'factories' => [
                 Middleware\HtmxMiddleware::class => Middleware\HtmxMiddlewareFactory::class,
+                LaminasViewRenderer::class       => Container\RendererFactory::class,
             ],
         ];
     }
@@ -57,7 +60,7 @@ final class ConfigProvider
     {
         return [
             'enable'   => true,
-            'app_name' => 'Mastering Mezzio',
+            //'app_name' => 'Mastering Mezzio',
             'config'   => [
                 'historyEnabled'          => true,
                 'historyCacheSize'        => 10,
@@ -90,6 +93,19 @@ final class ConfigProvider
                 'scrollIntoViewOnBoost'   => true,
                 'triggerSpecsCache'       => null,
                 'allowNestedOobSwaps'     => true,
+            ],
+        ];
+    }
+
+    public function getTemplates(): array
+    {
+        return [
+            'layout' => 'htmx::layout',
+            'header' => 'htmx::header',
+            'body'   => 'htmx::body',
+            'footer' => 'htmx::footer',
+            'paths'  => [
+                'htmx'   => [__DIR__ . '/../../../../src/App/templates/htmx'],
             ],
         ];
     }
