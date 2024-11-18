@@ -20,5 +20,5 @@ final class HeaderModel extends ViewModel
      *
      * @var string
      */
-    protected $template = 'app::header';
+    protected $template = 'htmx::header';
 }

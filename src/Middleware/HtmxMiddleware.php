@@ -63,20 +63,20 @@ class HtmxMiddleware implements MiddlewareInterface
             $routeName = $routeResult->getMatchedRouteName() ?? '';
         }
 
-        // setup the Htmx ViewModel
-        $model = new ViewModel();
-        $model->addChild(
-            new HeaderModel(
-                [
-                    'request' => $request,
-                    'appName' => $this->htmxConfig['app_name'],
-                    'title'   => $routeName,
-                ]
-            )
-        );
+        // // setup the Htmx ViewModel
+        // $model = new ViewModel();
+        // $model->addChild(
+        //     new HeaderModel(
+        //         [
+        //             'request' => $request,
+        //             'appName' => $this->htmxConfig['app_name'],
+        //             'title'   => $routeName,
+        //         ]
+        //     )
+        // );
 
-        $model->addChild(new FooterModel());
-        $request = $request->withAttribute(ModelInterface::class, $model);
+        // $model->addChild(new FooterModel());
+        // $request = $request->withAttribute(ModelInterface::class, $model);
         return $handler->handle($request);
     }
 }
