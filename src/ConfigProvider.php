@@ -4,19 +4,28 @@ declare(strict_types=1);
 
 namespace Axleus\Htmx;
 
+use Axleus\Core\ConfigProviderInterface;
 use Laminas\Form\View\Helper\Form as LaminasFormHelper;
 use Mezzio\LaminasView\LaminasViewRenderer;
 
-final class ConfigProvider
+final class ConfigProvider implements ConfigProviderInterface
 {
     public function __invoke(): array
     {
         return [
+            static::AXLEUS_KEY   => [static::class => $this->getAxleusSettings()],
             'dependencies'       => $this->getDependencies(),
             'view_helpers'       => $this->getViewHelpers(),
             'view_helper_config' => $this->getViewHelperConfig(),
             'htmx_config'        => $this->getHtmxConfig(),
             'templates'          => $this->getTemplates(),
+        ];
+    }
+
+    public function getAxleusSettings(): array
+    {
+        return [
+            'enable' => true,
         ];
     }
 

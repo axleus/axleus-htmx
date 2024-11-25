@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Axleus\Htmx\Container;
 
+use Axleus\Htmx\ConfigProvider;
 use Axleus\Htmx\View\Renderer\HtmxRenderer;
 use Laminas\View\HelperPluginManager;
 use Laminas\View\Renderer\PhpRenderer;
@@ -12,7 +13,6 @@ use Mezzio\Helper\UrlHelperInterface;
 use Mezzio\Helper\ServerUrlHelper as BaseServerUrlHelper;
 use Mezzio\Helper\UrlHelper as BaseUrlHelper;
 use Mezzio\LaminasView\Exception;
-use Mezzio\LaminasView\LaminasViewRenderer;
 use Mezzio\LaminasView\ServerUrlHelper;
 use Mezzio\LaminasView\UrlHelper;
 use Psr\Container\ContainerInterface;
@@ -27,7 +27,7 @@ class RendererFactory
     public function __invoke(ContainerInterface $container): HtmxRenderer
     {
         $config     = $container->has('config') ? $container->get('config') : [];
-        $htmxConfig = $config['htmx_config'] ?? [];
+        $htmxConfig = $config[ConfigProvider::AXLEUS_KEY][ConfigProvider::class] ?? [];
         $config     = $config['templates'] ?? [];
         // Configuration
         $resolver = new Resolver\AggregateResolver();
