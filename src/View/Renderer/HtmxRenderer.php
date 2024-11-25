@@ -65,7 +65,7 @@ class HtmxRenderer implements TemplateRendererInterface
         private ?RendererInterface $renderer = null,
         $layout = null,
         ?string $defaultSuffix = null,
-        private ?bool $enableHtmx = true
+        private ?bool $enableHtmx = false
     ) {
         if (null === $renderer) {
             $renderer = $this->createRenderer();
