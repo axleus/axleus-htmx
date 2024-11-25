@@ -105,7 +105,7 @@ final class ConfigProvider
             'body'   => 'htmx::body',
             'footer' => 'htmx::footer',
             'paths'  => [
-                'htmx'   => [__DIR__ . '/../../../../src/App/templates/htmx'],
+                'htmx'   => [__DIR__ . '/../templates/htmx'],
             ],
         ];
     }
