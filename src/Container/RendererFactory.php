@@ -27,7 +27,7 @@ class RendererFactory
     public function __invoke(ContainerInterface $container): HtmxRenderer
     {
         $config     = $container->has('config') ? $container->get('config') : [];
-        $htmxConfig = $config[ConfigProvider::AXLEUS_KEY][ConfigProvider::class] ?? [];
+        $htmxConfig = $config[ConfigProvider::class] ?? [];
         $config     = $config['templates'] ?? [];
         // Configuration
         $resolver = new Resolver\AggregateResolver();

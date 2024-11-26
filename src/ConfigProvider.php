@@ -13,7 +13,7 @@ final class ConfigProvider implements ConfigProviderInterface
     public function __invoke(): array
     {
         return [
-            static::AXLEUS_KEY   => [static::class => $this->getAxleusSettings()],
+            static::class        => $this->getAxleusConfig(),
             'dependencies'       => $this->getDependencies(),
             'view_helpers'       => $this->getViewHelpers(),
             'view_helper_config' => $this->getViewHelperConfig(),
@@ -22,7 +22,7 @@ final class ConfigProvider implements ConfigProviderInterface
         ];
     }
 
-    public function getAxleusSettings(): array
+    public function getAxleusConfig(): array
     {
         return [
             'enable' => true,
