@@ -23,7 +23,6 @@ $this->headLink()
     ->appendStylesheet('https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css')
     ->appendStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css')
     ->appendStylesheet('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css')
-    ->appendStylesheet($this->basePath('front-end/css/pico-override.css'))
     ->appendStylesheet($this->basePath('front-end/css/style.css'));
 
 // head script files and script
@@ -67,6 +66,7 @@ $this->inlineScript()
         <?=$this->headMeta()?>
         <?=$this->headLink()?>
         <?=$this->headScript()?>
+        <?=$this->headStyle($this->cssBaseline())?>
     </head>
     <body hx-boost="true" hx-push-url="true">
         <?=$this->content?>
