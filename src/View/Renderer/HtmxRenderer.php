@@ -12,6 +12,7 @@ use Laminas\View\Model\ViewModel;
 use Laminas\View\Renderer\PhpRenderer;
 use Laminas\View\Renderer\RendererInterface;
 use Laminas\View\Resolver\AggregateResolver;
+use Mezzio\LaminasView\LaminasViewRenderer;
 use Mezzio\LaminasView\NamespacedPathStackResolver;
 use Mezzio\Template\ArrayParametersTrait;
 use Mezzio\Template\DefaultParamsTrait;
@@ -34,7 +35,7 @@ use function sprintf;
  * registers a NamespacedPathStackResolver at priority 0 (lower than
  * default) in the Aggregate to ensure we can add and resolve namespaced paths.
  */
-class HtmxRenderer implements TemplateRendererInterface
+class HtmxRenderer extends LaminasViewRenderer
 {
     use ArrayParametersTrait;
     use DefaultParamsTrait;
