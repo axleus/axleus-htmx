@@ -10,12 +10,11 @@ use function json_encode;
 
 trait HtmxTriggerTrait
 {
-    final public const UI_EVENT = 'systemMessage'; // this is our event so lets support it as default
-    private array $headers;
+    final public const SYSTEM_MESSAGE = 'systemMessage';
 
-    protected function htmxTrigger(
+    public function htmxTrigger(
         array $data,
-        ?string $event = self::UI_EVENT
+        ?string $event = self::SYSTEM_MESSAGE
     ): void {
         $this->headers[Htmx::HX_Trigger->value] = json_encode([$event => $data]);
     }
