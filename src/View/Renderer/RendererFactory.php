@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Axleus\Htmx\Container;
+namespace Axleus\Htmx\View\Renderer;
 
 use Axleus\Htmx\ConfigProvider;
-use Axleus\Htmx\View\Renderer\HtmxRenderer;
 use Laminas\View\HelperPluginManager;
 use Laminas\View\Renderer\PhpRenderer;
 use Laminas\View\Resolver;

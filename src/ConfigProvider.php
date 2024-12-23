@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Axleus\Htmx;
 
 use Axleus\Core\ConfigProviderInterface;
+use Laminas\Config\Processor\Filter;
+use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
 use Laminas\Form\View\Helper\Form as LaminasFormHelper;
 use Mezzio\LaminasView\LaminasViewRenderer;
 
@@ -33,8 +35,12 @@ final class ConfigProvider implements ConfigProviderInterface
     {
         return [
             'factories' => [
-                Middleware\HtmxMiddleware::class => Middleware\HtmxMiddlewareFactory::class,
-                LaminasViewRenderer::class       => Container\RendererFactory::class,
+                FilterServerRequestInterface::class => Request\HtmxFilter::class,
+                LaminasViewRenderer::class          => View\Renderer\RendererFactory::class,
+                Middleware\HtmxMiddleware::class    => Middleware\HtmxMiddlewareFactory::class,
+            ],
+            'invokables' => [
+                FilterServerRequestInterface::class => Request\HtmxFilter::class,
             ],
         ];
     }
