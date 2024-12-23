@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Axleus\Htmx;
 
+use Axleus\Core\Stdlib\EnumTrait;
+
 /**
  * @link https://htmx.org/reference/#response_headers
  */
 enum ResponseHeaders: string
 {
+    use EnumTrait;
+
     case HX_Location             = 'HX-Location';
     case HX_Push_Url             = 'HX-Push-Url';
     case HX_Redirect             = 'HX-Redirect';

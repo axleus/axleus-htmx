@@ -9,18 +9,28 @@ use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
 use Laminas\Diactoros\ServerRequestFilter\FilterUsingXForwardedHeaders;
 use Psr\Http\Message\ServerRequestInterface;
 
+use function array_intersect_key;
+
 final class HtmxFilter implements FilterServerRequestInterface
 {
     public function __invoke(ServerRequestInterface $request): ServerRequestInterface
     {
         // maintain default behavior
         $request = FilterUsingXForwardedHeaders::trustReservedSubnets()($request);
-        if (! empty($request->getHeader(Htmx::HX_Request->value))) {
-            $request = $request->withAttribute(Htmx::HX_Request->value, true);
-        }
-        $trigger = $request->getHeader(Htmx::HX_Trigger->value);
-        if (! empty($trigger)) {
-            $request = $request->withAttribute(Htmx::HX_Trigger->value, $trigger[0]);
+
+        $headers = $request->getHeaders();
+        $htmxHeaders = array_flip(Htmx::toArray(
+            normalize: true,
+            valueTreatment: 'strtolower',
+        ));
+
+        foreach ($headers as $header => $value) {
+            if (isset($htmxHeaders[$header])) {
+                $request = $request->withAttribute(
+                    $header,
+                    $value[0] === 'true' ? true : $value[0]
+                );
+            }
         }
 
         return $request;
