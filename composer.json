@@ -65,6 +65,8 @@
         "test": "phpunit --colors=always --testsuite unit",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "sort-packages": true,
         "platform": {
