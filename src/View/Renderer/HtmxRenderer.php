@@ -18,7 +18,6 @@ use Mezzio\Template\ArrayParametersTrait;
 use Mezzio\Template\DefaultParamsTrait;
 use Mezzio\Template\Exception;
 use Mezzio\Template\TemplatePath;
-use Mezzio\Template\TemplateRendererInterface;
 
 use function get_debug_type;
 use function is_int;

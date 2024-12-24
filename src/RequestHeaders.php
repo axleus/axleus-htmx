@@ -3,11 +3,15 @@
 declare(strict_types=1);
 
 namespace Axleus\Htmx;
+
+use Axleus\Core\Stdlib\EnumTrait;
 /**
  * @link https://htmx.org/reference/#request_headers
  */
 Enum RequestHeaders: string
 {
+    use EnumTrait;
+
     case HX_Boosted                 = 'HX-Boosted';
     case HX_Current_Url             = 'HX-Current-Url';
     case HX_History_Restore_Request = 'HX-History-Restore-Request';
