@@ -15,7 +15,7 @@
          failOnWarning="true">
     <testsuites>
         <testsuite name="unit">
-            <directory>test/unit</directory>
+            <directory>test</directory>
         </testsuite>
     </testsuites>
     <coverage pathCoverage="false" disableCodeCoverageIgnore="true">
@@ -24,8 +24,5 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
-        <exclude>
-            <directory suffix=".php">test/config</directory>
-        </exclude>
     </source>
 </phpunit>
