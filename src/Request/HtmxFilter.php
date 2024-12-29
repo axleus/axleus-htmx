@@ -9,8 +9,6 @@ use Laminas\Diactoros\ServerRequestFilter\FilterServerRequestInterface;
 use Laminas\Diactoros\ServerRequestFilter\FilterUsingXForwardedHeaders;
 use Psr\Http\Message\ServerRequestInterface;
 
-use function array_intersect_key;
-
 final class HtmxFilter implements FilterServerRequestInterface
 {
     public function __invoke(ServerRequestInterface $request): ServerRequestInterface
