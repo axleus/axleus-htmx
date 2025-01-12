@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Axleus\Message\SystemMessage;
@@ -8,22 +9,21 @@ $this->headTitle($this->appName)->setSeparator(' - ')->setAutoEscape(false)
 <?=$this->headTitle($this->title);?>
 <header id="app-header" class="container" style="margin-top:0; padding-top: 0;">
     <nav id="nav">
-        <!-- Brand -->
         <ul>
             <li>
                 <a href="<?=$this->url('home')?>">
-                    <img src="<?=$this->basePath('front-end/images/mm7.png')?>" alt="Mastering Mezzio" width="300" />
+                    <img src="<?=$this->basePath('front-end/images/axleus-logo.svg')?>" alt="Freelancer by Axleus" width="150" />
                 </a>
             </li>
         </ul>
         <ul>
             <li>
-                <a href="https://github.com/tyrsson/masteringmezzio.com" target="_blank">
+                <a href="https://github.com/axleus" target="_blank">
                     <i class="bi-github"></i>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/tyrsson/masteringmezzio.com/discussions" target="_blank">
+                <a href="https://github.com/axleus/freelancer" target="_blank">
                     <i class="bi-envelope-fill"></i>
                 </a>
             </li>
