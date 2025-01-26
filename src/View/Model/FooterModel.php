@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Axleus\Htmx\View\Model;
+namespace Axleus\ThemeManager\View\Model;
 
 use Laminas\View\Model\ViewModel;
 
@@ -20,5 +20,5 @@ final class FooterModel extends ViewModel
      *
      * @var string
      */
-    protected $template = 'htmx::footer';
+    protected $template = 'layout::footer';
 }

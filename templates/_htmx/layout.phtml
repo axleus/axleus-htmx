@@ -8,7 +8,7 @@ $this->headMeta()
     ->setCharSet('UTF-8')
     ->appendName('viewport', 'width=device-width, initial-scale=1')
     ->appendName('color-scheme', 'light dark')
-    ->appendName('htmx-config', '{"responseHandling": [{"code":"...", "swap": true}], "historyCacheSize": 0}')
+    //->appendName('htmx-config', '{"responseHandling": [{"code":"...", "swap": true}], "historyCacheSize": 0}')
     ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
 
 $this->headLink(
@@ -27,6 +27,10 @@ $this->headLink()
 
 // head script files and script
 $this->headScript()
+->appendFile(
+    'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js',
+    'text/javascript',
+)
 ->appendFile(
     'https://unpkg.com/htmx.org@2.0.1/dist/htmx.js',
     'text/javascript',
