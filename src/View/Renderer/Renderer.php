@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Axleus\Htmx\View\Renderer;
+namespace Axleus\ThemeManager\View\Renderer;
 
 use Axleus\Htmx\View\Model;
 use Laminas\Stdlib\SplStack;
@@ -34,7 +34,7 @@ use function sprintf;
  * registers a NamespacedPathStackResolver at priority 0 (lower than
  * default) in the Aggregate to ensure we can add and resolve namespaced paths.
  */
-class HtmxRenderer extends LaminasViewRenderer
+class Renderer extends LaminasViewRenderer
 {
     use ArrayParametersTrait;
     use DefaultParamsTrait;

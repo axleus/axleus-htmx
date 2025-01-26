@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Axleus\Htmx\View\Renderer;
+namespace Axleus\ThemeManager\View\Renderer;
 
 use Axleus\Htmx\ConfigProvider;
 use Laminas\View\HelperPluginManager;
@@ -23,7 +23,7 @@ use function sprintf;
 
 class RendererFactory
 {
-    public function __invoke(ContainerInterface $container): HtmxRenderer
+    public function __invoke(ContainerInterface $container): Renderer
     {
         $config     = $container->has('config') ? $container->get('config') : [];
         $htmxConfig = $config[ConfigProvider::class] ?? [];
