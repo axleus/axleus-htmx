@@ -18,7 +18,6 @@ final class ConfigProvider implements ConfigProviderInterface
             'view_helpers'       => $this->getViewHelpers(),
             'view_helper_config' => $this->getViewHelperConfig(),
             'htmx_config'        => $this->getHtmxConfig(),
-            'templates'          => $this->getTemplates(),
         ];
     }
 
@@ -107,16 +106,6 @@ final class ConfigProvider implements ConfigProviderInterface
                 'triggerSpecsCache'       => null,
                 'allowNestedOobSwaps'     => true,
             ],
-        ];
-    }
-
-    public function getTemplates(): array
-    {
-        return [
-            'layout' => 'layout::layout',
-            'header' => 'layout::header',
-            'body'   => 'layout::body',
-            'footer' => 'layout::footer',
         ];
     }
 }
